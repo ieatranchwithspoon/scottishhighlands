@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scottish Highlands</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div id="ui-layer">
+            <div id="start-screen" class="screen">
+                <h1>THE SCOTTISH HIGHLANDS</h1>
+                <div class="button-group">
+                    <button id="start-btn">PLAY NOW</button>
+                    <button id="hard-btn">HARD MODE</button>
+                    <button id="controls-btn">CONTROLS</button>
+                </div>
+
+                <div id="start-records">
+                    <p>BEST: <span id="start-hs-normal">0</span></p>
+                    <p>BEST (HARD): <span id="start-hs-hard">0</span></p>
+                </div>
+
+                <!-- Controls Modal -->
+                <div id="controls-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h2>CONTROLS</h2>
+                        <p>ARROWS — MOVE</p>
+                        <p>SPACE — SHOOT</p>
+                        <button id="close-controls">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h1>YOU DIED</h1>
+                <p>SCOTLAND FOREVER</p>
+                <p>Score: <span id="final-score">0</span></p>
+                <div id="high-score-display">
+                    <p><span id="game-over-hs-label">HIGHEST SCORE</span>: <span id="high-score-val">0</span></p>
+                </div>
+                <div class="button-group">
+                    <button id="restart-btn">REVIVE</button>
+                    <button id="game-over-quit-btn">QUIT TO HOME</button>
+                </div>
+            </div>
+
+            <div id="pause-screen" class="screen hidden">
+                <h1>PAUSED</h1>
+                <div id="pause-high-score">
+                    <p><span id="pause-hs-label">BEST</span>: <span id="pause-hs-val">0</span></p>
+                </div>
+                <div class="pause-controls">
+                    <p>ARROWS — MOVE</p>
+                    <p>SPACE — SHOOT</p>
+                </div>
+                <div class="button-group">
+                    <button id="resume-btn">RESUME</button>
+                    <button id="quit-btn">QUIT TO HOME</button>
+                </div>
+            </div>
+
+            <div id="hud" class="hidden">
+                <div id="lives"></div>
+                <span>Score: <span id="score">0</span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div id="mobile-controls">
+            <div id="dpad">
+                <button class="dpad-btn" id="btn-up">▲</button>
+                <div class="dpad-row">
+                    <button class="dpad-btn" id="btn-left">◀</button>
+                    <div class="dpad-center"></div>
+                    <button class="dpad-btn" id="btn-right">▶</button>
+                </div>
+                <button class="dpad-btn" id="btn-down">▼</button>
+            </div>
+            <button id="fire-btn">FIRE</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+# PowerShell utility scripts
+*.ps1
+
+# Raw assets
+*_raw.png
+player_v2.png
+
+# Gemini/Antigravity system data
+.gemini/
+.agent/
+.system_generated/
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store

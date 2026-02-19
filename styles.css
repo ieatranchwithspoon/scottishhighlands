@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202028;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+#game-container {
+    position: relative;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px black, 0 0 0 8px white;
+}
+
+canvas {
+    display: block;
+    background-color: #000;
+    image-rendering: pixelated;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#start-screen {
+    background: url('bg_flag.svg') no-repeat center center;
+    background-size: cover;
+}
+
+#start-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    pointer-events: auto;
+    gap: 12px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #FFD700;
+    text-shadow: 4px 4px #FF0000;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 0.7rem;
+    margin: 4px 0;
+    color: #eee;
+    line-height: 1.6;
+}
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+#controls-btn {
+    background-color: #3498db;
+}
+
+#controls-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Modal Styling */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border: 4px solid #FFD700;
+    padding: 30px;
+    z-index: 100;
+    min-width: 300px;
+}
+
+.modal-content h2 {
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+    margin: 15px 0;
+    color: white;
+}
+
+button {
+    padding: 16px 24px;
+    font-size: 1rem;
+    background-color: #e74c3c;
+    color: white;
+    border: 4px solid white;
+    box-shadow: 4px 4px 0px black;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    margin-top: 10px;
+    pointer-events: auto;
+}
+
+button:hover {
+    background-color: #c0392b;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px black;
+}
+
+#hard-btn {
+    background-color: #000;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+}
+
+#hard-btn:hover {
+    background-color: #ff0000;
+    color: #000;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#lives {
+    display: flex;
+    gap: 10px;
+}
+
+#lives img {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+}
+
+
+#pause-screen {
+    background: rgba(0, 30, 60, 0.92);
+}
+
+#pause-high-score {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+#pause-hs-val {
+    color: #3498db;
+    font-size: 1.1rem;
+}
+
+.pause-controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px dashed #fff;
+}
+
+.pause-controls p {
+    font-size: 0.65rem;
+    margin: 8px 0;
+    letter-spacing: 1px;
+}
+
+/* High Score Display */
+#high-score-display {
+    margin: 12px 0 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+#high-score-display p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #FFD700;
+}
+
+.new-record-highlight {
+    color: #fff;
+    text-shadow: 0 0 8px #FFD700;
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Modal Styling */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border: 4px solid #FFD700;
+    padding: 30px;
+    z-index: 100;
+    min-width: 300px;
+}
+
+.modal-content h2 {
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+    margin: 15px 0;
+    color: white;
+}
+
+/* Mobile Controls */
+#mobile-controls {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    pointer-events: auto;
+}
+
+.dpad-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.dpad-center {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.dpad-btn:hover,
+.dpad-btn:active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: none;
+    box-shadow: none;
+}
+
+#fire-btn {
+    width: 90px;
+    height: 90px;
+    font-size: 0.6rem;
+    background: rgba(231, 76, 60, 0.8);
+    border: 3px solid white;
+    box-shadow: none;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    margin: 0;
+}
+
+#fire-btn:hover,
+#fire-btn:active {
+    background: rgba(192, 57, 43, 0.9);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Show mobile controls on touch devices */
+@media (pointer: coarse) {
+    #mobile-controls {
+        display: flex;
+    }
+
+    /* Shift canvas up slightly to make room */
+    #game-container {
+        margin-bottom: 120px;
+    }
+}

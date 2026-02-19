@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <!-- Kilt (Tartan) -->
+    <rect x="20" y="32" width="24" height="20" fill="red" />
+    <line x1="20" y1="36" x2="44" y2="36" stroke="green" stroke-width="2" />
+    <line x1="20" y1="44" x2="44" y2="44" stroke="green" stroke-width="2" />
+    <line x1="26" y1="32" x2="26" y2="52" stroke="green" stroke-width="2" />
+    <line x1="38" y1="32" x2="38" y2="52" stroke="green" stroke-width="2" />
+    
+    <!-- Body/Shirt -->
+    <rect x="20" y="16" width="24" height="16" fill="black" />
+    
+    <!-- Head -->
+    <circle cx="32" cy="10" r="8" fill="#ffccaa" />
+    <rect x="28" y="0" width="8" height="6" fill="black" /> <!-- Hat -->
+
+    <!-- Bagpipes -->
+    <rect x="10" y="14" width="10" height="20" fill="#654321" /> <!-- Bag -->
+    <line x1="15" y1="14" x2="15" y2="0" stroke="black" stroke-width="3" /> <!-- Drone -->
+    <line x1="15" y1="20" x2="30" y2="24" stroke="black" stroke-width="2" /> <!-- Chanter to mouth -->
+</svg>
